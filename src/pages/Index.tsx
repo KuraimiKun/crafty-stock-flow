@@ -2,9 +2,19 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Package, Users, ShoppingCart, BarChart3 } from 'lucide-react';
+import { authService } from '@/services/auth';
 
 const Index = () => {
   const navigate = useNavigate();
+  const currentUser = authService.getCurrentUser();
+
+  const handlePrimaryClick = () => {
+    if (currentUser) {
+      navigate(authService.getDefaultDashboardPath());
+    } else {
+      navigate('/login');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -15,11 +25,8 @@ const Index = () => {
             Streamline your inventory operations with our comprehensive management platform
           </p>
           <div className="flex gap-4 justify-center">
-            <Button size="lg" onClick={() => navigate('/login')}>
-              Login
-            </Button>
-            <Button size="lg" variant="outline" onClick={() => navigate('/register')}>
-              Register
+            <Button size="lg" onClick={handlePrimaryClick}>
+              {currentUser ? 'Go to dashboard' : 'Get started'}
             </Button>
           </div>
         </div>

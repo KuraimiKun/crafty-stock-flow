@@ -26,7 +26,7 @@ const Login = () => {
         title: 'Login successful',
         description: 'Welcome back!',
       });
-      navigate('/dashboard');
+      navigate(authService.getDefaultDashboardPath(), { replace: true });
     } catch (error) {
       toast({
         title: 'Login failed',
