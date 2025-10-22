@@ -1,8 +1,10 @@
+import { AUTH_TOKEN_KEY } from '@/constants/auth';
+
 const API_BASE_URL = 'https://localhost:7240/api';
 
 export const api = {
   async request<T>(endpoint: string, options?: RequestInit): Promise<T> {
-    const token = localStorage.getItem('authToken');
+  const token = localStorage.getItem(AUTH_TOKEN_KEY);
     
     const headers: HeadersInit = {
       'Content-Type': 'application/json',
