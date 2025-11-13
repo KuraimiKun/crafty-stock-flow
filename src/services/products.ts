@@ -29,6 +29,11 @@ export interface AdjustStockRequest {
 
 export const productsService = {
   getAll: () => api.get<Product[]>('/Products'),
+  
+  //add temporary public access
+  getPublic: () => api.get<Product[]>('/Products/public'),
+  //end temporary public access
+
   getById: (id: string) => api.get<Product>(`/Products/${id}`),
   create: (data: UpsertProductRequest) => api.post('/Products', data),
   update: (id: string, data: UpsertProductRequest) => api.put(`/Products/${id}`, data),
