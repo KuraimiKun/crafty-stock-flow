@@ -10,6 +10,7 @@ import BannerCarousel from '@/components/BannerCarousel';
 import { useMemo, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { productsService, Product as ServiceProduct } from '@/services/products';
+import GeminiChatbot from '@/components/GeminiChatbot';
 
 type Product = ServiceProduct;
 
@@ -186,6 +187,7 @@ const Index = () => {
           © {new Date().getFullYear()} <span className="font-semibold">AIMS.</span> — All rights reserved.
         </div>
       </footer>
+      <GeminiChatbot />
     </div>
   );
 };
