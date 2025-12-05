@@ -17,6 +17,7 @@ import CreateOrder from "./pages/CreateOrder";
 import Suppliers from "./pages/Suppliers";
 import Inventory from "./pages/Inventory";
 import Reports from "./pages/Reports";
+import Contact from "./pages/Contact";
 import Unauthorized from "./pages/Unauthorized";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -33,6 +34,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/dashboard/admin" element={<ProtectedRoute allowedRoles={[Roles.Admin]}><AdminDashboard /></ProtectedRoute>} />
           <Route path="/dashboard/manager" element={<ProtectedRoute allowedRoles={[Roles.InventoryManager]}><ManagerDashboard /></ProtectedRoute>} />

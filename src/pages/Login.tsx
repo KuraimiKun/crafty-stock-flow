@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -69,12 +69,17 @@ const Login = () => {
             <Button type="submit" className="w-full" disabled={loading}>
               {loading ? 'Logging in...' : 'Login'}
             </Button>
-            <p className="text-center text-sm text-muted-foreground">
-              Don't have an account?{' '}
-              <Link to="/register" className="text-primary hover:underline">
-                Register
-              </Link>
-            </p>
+
+            {/* Test credentials */}
+            <div className="bg-muted/50 border rounded-lg p-3 text-sm">
+              <p className="font-medium text-muted-foreground mb-1">Demo Credentials:</p>
+              <p className="text-muted-foreground">
+                Username: <code className="bg-muted px-1 rounded">admin</code>
+              </p>
+              <p className="text-muted-foreground">
+                Password: <code className="bg-muted px-1 rounded">Admin123!</code>
+              </p>
+            </div>
           </form>
         </CardContent>
       </Card>
